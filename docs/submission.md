@@ -1,0 +1,47 @@
+# Submission Notes
+
+## Project name
+
+HomeHandoff
+
+## Elevator pitch
+
+A simulated Alexa+ agent that turns arrivals into safe, consent-based handoffs.
+
+## Track boundary
+
+This project uses the Alexa+ simulated-experience route and includes an optional self-hosted MCP server using Streamable HTTP. The household event and device state are clearly labelled simulated. The local workflow, policy checks, confirmation boundary, refusal path, and audit trail are executable source code.
+
+## AWS Builder boundary
+
+When configured, Amazon Bedrock interprets the user's request. It cannot decide policy or execute external actions. The local policy engine validates the intent and the confirmation boundary controls notifications. **Select AWS Builder only after a real Bedrock invocation appears in the UI trace.** Record the exact model, AWS region, and onboarding result in the final product feedback.
+
+## Open Source mini challenge
+
+The additional project is `handoff-policy-kit`, a dependency-free MIT-licensed policy package created during this hackathon. Publish it as its own public GitHub repository. Use its repository URL for both the contribution URL and project repository URL if Devpost accepts that for a new repository; otherwise use the first commit URL as the contribution URL. The HomeHandoff repository alone does not satisfy the additional-project requirement.
+
+## Devpost fields
+
+- Submitter type: select the truthful individual/team option.
+- Organization: `N/A` if this is a personal submission.
+- Primary track: Alexa+.
+- Primary repository: the public HomeHandoff repository with its MIT license visible at the root.
+- Project status: new, because this implementation began during the hackathon submission period.
+- AWS Builder: select only after Bedrock is verified; describe Amazon Bedrock, the exact model and region, and that it performs language interpretation while local deterministic policy controls all actions.
+- Open Source mini challenge: select after the second repository has been published; include both URLs, GitHub username `AnuranjanJain`, and a short explanation of the package.
+- Product testing: provide the local run command and describe that all household/device records are simulated.
+- AI tools, learning, and career-value questions: answer based on the tools actually used and what you personally learned; do not submit a prefilled claim on the participant's behalf.
+
+## Product feedback checklist
+
+For every Amazon, AWS, model, or framework tool used in the final project, record:
+
+- What task it supported.
+- What worked well.
+- What was difficult or unclear.
+- Whether onboarding was sufficient.
+- Whether the project would use it again.
+
+## Friction log checklist
+
+For each meaningful issue, record the attempted task, expected behavior, actual behavior, severity, workaround, and actionable suggestion. Do not invent entries; use observed behavior only.

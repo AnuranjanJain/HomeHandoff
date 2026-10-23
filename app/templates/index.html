@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>HomeHandoff</title>
+    <link rel="stylesheet" href="/static/style.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="brand-lockup">
+        <div class="brand-mark" aria-hidden="true">HH</div>
+        <div>
+          <h1>HomeHandoff</h1>
+          <p>Alexa+ simulated experience</p>
+        </div>
+      </div>
+      <div class="topbar-actions">
+        <span class="simulation-badge">SIMULATED DATA</span>
+        <button class="quiet-button" id="resetButton" type="button">Reset scenario</button>
+      </div>
+    </header>
+
+    <main class="page-shell">
+      <section class="status-band" aria-labelledby="status-heading">
+        <div>
+          <p class="eyebrow">HOUSEHOLD OPERATIONS</p>
+          <h2 id="status-heading">Handle the arrival without breaking the flow.</h2>
+          <p class="status-copy">A consent-first decision layer for arrivals, notifications, and household handoffs.</p>
+        </div>
+        <div class="status-summary">
+          <span>Decision status</span>
+          <strong id="statusLabel">Ready</strong>
+          <small id="statusDetail">Waiting for a request</small>
+        </div>
+      </section>
+
+      <section class="dashboard-grid" aria-label="HomeHandoff dashboard">
+        <div class="column-stack">
+          <section class="surface" aria-labelledby="event-heading">
+            <div class="section-heading">
+              <div>
+                <p class="eyebrow">CURRENT EVENT</p>
+                <h3 id="event-heading">Arrival context</h3>
+              </div>
+              <span class="state-pill neutral" id="eventStatus">Arriving now</span>
+            </div>
+            <dl class="detail-list">
+              <div><dt>From</dt><dd id="eventActor">Northstar Couriers</dd></div>
+              <div><dt>Timing</dt><dd id="eventEta">Now</dd></div>
+              <div><dt>Instruction</dt><dd id="eventInstruction">Leave at the covered porch.</dd></div>
+              <div><dt>Source</dt><dd id="eventSource">Simulated household event</dd></div>
+            </dl>
+          </section>
+
+          <section class="surface" aria-labelledby="policy-heading">
+            <div class="section-heading">
+              <div>
+                <p class="eyebrow">HOUSEHOLD POLICY</p>
+                <h3 id="policy-heading">Boundaries</h3>
+              </div>
+              <span class="state-pill safe">Protected</span>
+            </div>
+            <dl class="detail-list">
+              <div><dt>Safe drop-off</dt><dd id="dropoffLocation">Covered porch</dd></div>
+              <div><dt>Resident</dt><dd id="residentStatus">On a work call</dd></div>
+              <div><dt>Trusted contacts</dt><dd id="trustedContacts">Maya, Rohan</dd></div>
+              <div><dt>Automatic unlock</dt><dd class="danger-text">Never allowed</dd></div>
+            </dl>
+          </section>
+        </div>
+
+        <section class="surface conversation-surface" aria-labelledby="conversation-heading">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">ALEXA+ SIMULATION</p>
+              <h3 id="conversation-heading">Household request</h3>
+            </div>
+            <span class="state-pill neutral">Text input</span>
+          </div>
+          <div class="message-list" id="messageList" aria-live="polite"></div>
+          <div class="example-row" aria-label="Example requests">
+            <button class="example-button" data-prompt="I am on a call. Handle the delivery safely.">Handle the delivery</button>
+            <button class="example-button" data-prompt="Can you unlock the door for them?">Request access</button>
+            <button class="example-button" data-prompt="A visitor is here. What should I do?">Check a visitor</button>
+          </div>
+          <form class="composer" id="requestForm">
+            <label class="sr-only" for="requestInput">Household request</label>
+            <input id="requestInput" name="message" maxlength="500" autocomplete="off" placeholder="Ask HomeHandoff what to do next" required />
+            <button class="primary-button" id="sendButton" type="submit">Send request</button>
+          </form>
+        </section>
+
+        <div class="column-stack">
+          <section class="surface" aria-labelledby="decision-heading">
+            <div class="section-heading">
+              <div>
+                <p class="eyebrow">DECISION</p>
+                <h3 id="decision-heading">Recommended action</h3>
+              </div>
+              <span class="state-pill neutral" id="decisionStatus">Pending</span>
+            </div>
+            <div class="decision-content" id="decisionContent">
+              <p class="empty-state">Send a request to generate a policy-checked recommendation.</p>
+            </div>
+          </section>
+
+          <section class="surface" aria-labelledby="trace-heading">
+            <div class="section-heading">
+              <div>
+                <p class="eyebrow">PROVENANCE</p>
+                <h3 id="trace-heading">Tool trace</h3>
+              </div>
+              <span class="trace-count" id="traceCount">0 calls</span>
+            </div>
+            <ol class="trace-list" id="traceList">
+              <li class="empty-state">No tools called yet.</li>
+            </ol>
+          </section>
+
+          <section class="surface audit-surface" aria-labelledby="audit-heading">
+            <div class="section-heading">
+              <div>
+                <p class="eyebrow">ACCOUNTABILITY</p>
+                <h3 id="audit-heading">Audit trail</h3>
+              </div>
+            </div>
+            <div id="auditList" class="audit-list">
+              <p class="empty-state">Confirmed decisions appear here.</p>
+            </div>
+          </section>
+        </div>
+      </section>
+    </main>
+    <script src="/static/app.js" defer></script>
+  </body>
+</html>
