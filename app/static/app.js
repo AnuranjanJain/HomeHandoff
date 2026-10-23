@@ -32,6 +32,7 @@ function render(data) {
   $("#dropoffLocation").textContent = policy.safe_dropoff_location;
   $("#residentStatus").textContent = availability.resident_status;
   $("#trustedContacts").textContent = policy.trusted_contacts.join(", ");
+  $(".status-summary").dataset.status = data.status;
   $("#statusLabel").textContent = statusLabel(data.status);
   $("#statusDetail").textContent = recommendation ? recommendation.title : "Waiting for a request";
 
@@ -47,7 +48,7 @@ function render(data) {
 function renderMessages(messages) {
   const list = $("#messageList");
   if (!messages.length) {
-    list.innerHTML = '<p class="empty-state">No request yet. Choose a prompt below or write your own.</p>';
+    list.innerHTML = '<p class="empty-state">No request yet.</p>';
     return;
   }
   list.innerHTML = messages.map((message) => `
@@ -62,7 +63,7 @@ function renderMessages(messages) {
 function renderDecision(recommendation) {
   const container = $("#decisionContent");
   if (!recommendation) {
-    container.innerHTML = '<p class="empty-state">Send a request to generate a policy-checked recommendation.</p>';
+    container.innerHTML = '<p class="empty-state">No recommendation yet.</p>';
     return;
   }
   const wrapperClass = recommendation.status === "refused" ? "refusal-box" : recommendation.status === "needs_clarification" ? "clarification-box" : "";
@@ -104,7 +105,7 @@ function renderTrace(toolCalls) {
 function renderAudit(entries) {
   const list = $("#auditList");
   if (!entries.length) {
-    list.innerHTML = '<p class="empty-state">Confirmed decisions appear here.</p>';
+    list.innerHTML = '<p class="empty-state">No decisions confirmed.</p>';
     return;
   }
   list.innerHTML = entries.slice().reverse().map((entry) => `
