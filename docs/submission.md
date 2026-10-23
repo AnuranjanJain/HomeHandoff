@@ -18,17 +18,22 @@ When configured, Amazon Bedrock interprets the user's request. It cannot decide 
 
 ## Open Source mini challenge
 
-The additional project is `handoff-policy-kit`, a dependency-free MIT-licensed policy package created during this hackathon. Publish it as its own public GitHub repository. Use its repository URL for both the contribution URL and project repository URL if Devpost accepts that for a new repository; otherwise use the first commit URL as the contribution URL. The HomeHandoff repository alone does not satisfy the additional-project requirement.
+The additional project is `handoff-policy-kit`, a dependency-free MIT-licensed policy package created during this hackathon and published as its own public repository.
+
+- Project repository: <https://github.com/AnuranjanJain/handoff-policy-kit>
+- Contribution URL: <https://github.com/AnuranjanJain/handoff-policy-kit/commit/5cb38f1c72972ce9144b0713faae441b39d0caec>
+- GitHub username: `AnuranjanJain`
+- License: MIT
 
 ## Devpost fields
 
 - Submitter type: select the truthful individual/team option.
 - Organization: `N/A` if this is a personal submission.
 - Primary track: Alexa+.
-- Primary repository: the public HomeHandoff repository with its MIT license visible at the root.
+- Primary repository: <https://github.com/AnuranjanJain/HomeHandoff> (public; MIT license at repository root).
 - Project status: new, because this implementation began during the hackathon submission period.
-- AWS Builder: select only after Bedrock is verified; describe Amazon Bedrock, the exact model and region, and that it performs language interpretation while local deterministic policy controls all actions.
-- Open Source mini challenge: select after the second repository has been published; include both URLs, GitHub username `AnuranjanJain`, and a short explanation of the package.
+- AWS Builder: do not select yet. The optional Bedrock adapter is implemented, but no Bedrock call has been verified. The local machine does not have AWS CLI installed, and console sign-in alone does not provide local SDK credentials.
+- Open Source mini challenge: select; include the contribution and repository URLs above, GitHub username `AnuranjanJain`, and the description in `docs/devpost-copy.md`.
 - Product testing: provide the local run command and describe that all household/device records are simulated.
 - AI tools, learning, and career-value questions: answer based on the tools actually used and what you personally learned; do not submit a prefilled claim on the participant's behalf.
 

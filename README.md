@@ -14,8 +14,9 @@ HomeHandoff is a simulated Alexa+ household experience for consent-based arrival
 
 Requires Python 3.11 or newer.
 
+Run these commands from the repository root:
+
 ```powershell
-cd outputs/homehandoff
 python -m venv .venv
 .\.venv\Scripts\Activate.ps1
 python -m pip install -r requirements.txt
